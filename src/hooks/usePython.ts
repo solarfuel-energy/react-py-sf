@@ -203,7 +203,7 @@ del sys
         await runnerRef.current.run(code, autoImportPackages)
         // eslint-disable-next-line
       } catch (error: any) {
-        setStderr('Traceback (most recent call last):\n' + error.message)
+        setStderr(error.message)
       } finally {
         setIsRunning(false)
         clearTimeout(timeoutTimer)
@@ -257,6 +257,8 @@ del sys
     unwatchModules,
     isAwaitingInput,
     sendInput: sendUserInput,
+    getFromGlobals: runnerRef.current?.getFromGlobals,
+    getVersion: runnerRef.current?.getVersion,
     prompt: runnerId ? getPrompt(runnerId) : ''
   }
 }

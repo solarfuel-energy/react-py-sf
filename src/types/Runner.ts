@@ -18,6 +18,8 @@ export interface Runner {
   writeFile: (name: string, data: string | ArrayBufferView) => void
   mkdir: (name: string) => void
   rmdir: (name: string) => void
+  getFromGlobals: (key: string) => unknown
+  getVersion: () => string
 }
 
 export interface PythonRunner extends Runner {
