@@ -201,6 +201,12 @@ def clear_console():
   },
   rmdir(name: string) {
     self.pyodide.FS.rmdir(name)
+  },
+  getFromGlobals(key: string) {
+    return self.pyodide.globals.get(key)
+  },
+  getVersion() {
+    return self.pyodide.version
   }
 }
 
